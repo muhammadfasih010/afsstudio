@@ -1,4 +1,4 @@
-                <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,18 +19,17 @@
             <div class="nav-actions">
                 <!-- Single Profile Dropdown -->
                 <div class="profile-dropdown">
-                    <button id="profileMenuBtn" class="profile-btn">
+                    <a href="set.html" id="profileMenuBtn" class="profile-btn"> <!-- a tag kar diya -->
                         <div id="userAvatarLetter">A</div>
                         <span id="displayProfileName">User</span>
-                        <span class="arrow">▼</span>
-                    </button>
+                    </a>
                     <div id="profileDropdownMenu" class="dropdown-menu hidden">
                         <div class="dropdown-header">
                             <div id="userAvatarLetterBig">A</div>
                             <span id="displayProfileNameBig">User</span>
                         </div>
+                        <a href="set.html">⚙️ Settings</a> <!-- yahan bhi set.html -->
                         <a href="#" id="openHistoryBtn">📜 History</a>
-                        <a href="set.html">⚙️ Settings</a>
                         <a href="auth.html">🚪 Logout</a>
                     </div>
                 </div>
@@ -39,18 +38,15 @@
 
         <!-- Main Workspace -->
         <main class="workspace">
-            <!-- Left Panel: Input & Controls -->
             <section class="control-panel glass-card">
                 <div class="panel-header">
                     <h2>Prompt Studio</h2>
                     <p>Describe the image you want to generate</p>
                 </div>
-
                 <div class="input-group">
                     <label for="imagePrompt">Enter Prompt</label>
                     <textarea id="imagePrompt" class="form-textarea" placeholder="e.g., A futuristic cyberpunk city in rain, neon lights, highly detailed 8k..." rows="5"></textarea>
                 </div>
-
                 <div class="input-group">
                     <label for="aspectRatio">Aspect Ratio</label>
                     <select id="aspectRatio" class="custom-select">
@@ -60,17 +56,14 @@
                         <option value="4:3">4:3 (Standard)</option>
                     </select>
                 </div>
-
                 <button id="generateBtn" class="btn-glow btn-full">✨ Generate Image</button>
             </section>
 
-            <!-- Right Panel: Output & Preview -->
             <section class="preview-panel glass-card">
                 <div class="panel-header">
                     <h2>Generated Output</h2>
                     <p>Your AI generated artwork will appear below</p>
                 </div>
-
                 <div id="imageDisplayArea" class="display-box">
                     <div id="loader" class="loader hidden"></div>
                     <div id="placeholderText" class="placeholder">
@@ -79,7 +72,6 @@
                     </div>
                     <img id="generatedImage" class="result-image hidden" alt="Generated Artwork">
                 </div>
-
                 <div id="imageActions" class="image-actions hidden">
                     <a id="downloadImageBtn" class="btn-glow btn-full" download="ai-image.png">📥 Download Image</a>
                 </div>
@@ -106,4 +98,4 @@
 
     <script src="gen.js"></script>
 </body>
-        </html>
+</html>
