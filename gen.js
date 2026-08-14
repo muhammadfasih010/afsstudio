@@ -1,12 +1,13 @@
-const HF_TOKEN = "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"; 
+        const HF_TOKEN = "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"; 
 const API_URL = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell";
 
-
 const generateBtn = document.getElementById('generateBtn');
-const promptInput = document.getElementById('prompt');
-const outputImage = document.getElementById('outputImage');
+const promptInput = document.getElementById('imagePrompt');
+const outputImage = document.getElementById('generatedImage');
 const loader = document.getElementById('loader');
-const downloadBtn = document.getElementById('downloadBtn');
+const downloadBtn = document.getElementById('downloadImageBtn');
+const placeholderText = document.getElementById('placeholderText');
+const imageActions = document.getElementById('imageActions');
 
 generateBtn.addEventListener('click', async () => {
     const prompt = promptInput.value.trim();
@@ -15,8 +16,9 @@ generateBtn.addEventListener('click', async () => {
     // Loading start
     generateBtn.disabled = true;
     loader.classList.remove('hidden');
+    placeholderText.classList.add('hidden');
     outputImage.classList.add('hidden');
-    downloadBtn.classList.add('hidden');
+    imageActions.classList.add('hidden');
 
     try {
         const response = await fetch(API_URL, {
@@ -28,7 +30,10 @@ generateBtn.addEventListener('click', async () => {
             body: JSON.stringify({ inputs: prompt })
         });
 
-        if(!response.ok) throw new Error("API Error");
+        if(!response.ok) {
+            const err = await response.text();
+            throw new Error(err);
+        }
 
         const blob = await response.blob();
         const imageUrl = URL.createObjectURL(blob);
@@ -39,14 +44,15 @@ generateBtn.addEventListener('click', async () => {
         
         // Download button
         downloadBtn.href = imageUrl;
-        downloadBtn.classList.remove('hidden');
+        imageActions.classList.remove('hidden');
         
-        // History me save - Member 3 ke liye
+        // History me save
         saveToHistory(prompt);
 
     } catch (error) {
-        alert("Error generating image. Check your token and internet.");
+        alert("Error generating image. \n" + error.message);
         console.error(error);
+        placeholderText.classList.remove('hidden');
     } finally {
         generateBtn.disabled = false;
         loader.classList.add('hidden');
@@ -60,7 +66,10 @@ function saveToHistory(prompt) {
         prompt: prompt,
         date: new Date().toLocaleString()
     });
-    // Sirf last 10 rakho
     if(history.length > 10) history.pop(); 
     localStorage.setItem('imageHistory', JSON.stringify(history));
 }
+
+// History Modal ke basic buttons - baad me complete kar lena
+document.getElementById('openHistoryBtn').onclick = () => document.getElementById('historyModal').classList.remove('hidden');
+document.getElementById('closeHistoryBtn').onclick = () => document.getElementById('historyModal').classList.add('hidden');
