@@ -1,4 +1,5 @@
 if (localStorage.getItem('currentUser')) {
+    localStorage.setItem('userName',); // example: "Ali"
     window.location.href = '/gen.html';
 }
 
