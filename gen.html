@@ -9,15 +9,12 @@
 </head>
 <body>
     <div class="generator-container">
-        <!-- Top Navigation Bar -->
         <header class="top-nav glass-card">
             <div class="brand">
                 <span class="logo-icon">✨</span>
                 <h1>AI Studio</h1>
             </div>
-
             <div class="nav-actions">
-                <!-- Sirf 1 Profile Button jo seedha set.html pe jaye -->
                 <a href="set.html" class="profile-btn">
                     <div id="userAvatarLetter" class="avatar-circle">A</div>
                     <span id="displayProfileName">Loading...</span>
@@ -25,20 +22,16 @@
             </div>
         </header>
 
-        <!-- Main Workspace -->
         <main class="workspace">
-            <!-- Left Panel: Input & Controls -->
             <section class="control-panel glass-card">
                 <div class="panel-header">
                     <h2>Prompt Studio</h2>
                     <p>Describe the image you want to generate</p>
                 </div>
-                
                 <div class="input-group">
                     <label for="imagePrompt">Enter Prompt</label>
                     <textarea id="imagePrompt" class="form-textarea" placeholder="e.g., A futuristic cyberpunk city in rain, neon lights, highly detailed 8k..." rows="5"></textarea>
                 </div>
-
                 <div class="input-group">
                     <label for="aspectRatio">Aspect Ratio</label>
                     <select id="aspectRatio" class="custom-select">
@@ -48,17 +41,14 @@
                         <option value="4:3">4:3 (Standard)</option>
                     </select>
                 </div>
-
                 <button id="generateBtn" class="btn-glow btn-full">✨ Generate Image</button>
             </section>
 
-            <!-- Right Panel: Output & Preview -->
             <section class="preview-panel glass-card">
                 <div class="panel-header">
                     <h2>Generated Output</h2>
                     <p>Your AI generated artwork will appear below</p>
                 </div>
-
                 <div id="imageDisplayArea" class="display-box">
                     <div id="loader" class="loader hidden"></div>
                     <div id="placeholderText" class="placeholder">
@@ -67,7 +57,6 @@
                     </div>
                     <img id="generatedImage" class="result-image hidden" alt="Generated Artwork">
                 </div>
-
                 <div id="imageActions" class="image-actions hidden">
                     <a id="downloadImageBtn" class="btn-glow btn-full" download="ai-image.png">📥 Download Image</a>
                 </div>
@@ -75,14 +64,10 @@
         </main>
     </div>
 
-    <!-- History Modal -->
     <div id="historyModal" class="modal-overlay hidden">
         <div class="modal-card glass-card">
             <div class="modal-header">
-                <div>
-                    <h3>📜 History Logs</h3>
-                    <p>Click any prompt to load it</p>
-                </div>
+                <div><h3>📜 History Logs</h3><p>Click any prompt to load it</p></div>
                 <button id="closeHistoryBtn" class="close-btn">✕</button>
             </div>
             <div id="historyListContainer" class="history-list"></div>
@@ -94,4 +79,4 @@
 
     <script src="gen.js"></script>
 </body>
-        </html>
+                            </html>
