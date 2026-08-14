@@ -1,6 +1,6 @@
 // Auto Redirect if user already logged in
 if (localStorage.getItem('currentUser')) {
-    window.location.href = '../generator/index.html';
+    window.location.href = '/generator/index.html';
 }
 
 function switchTab(type) {
@@ -30,8 +30,8 @@ document.getElementById('loginForm').addEventListener('submit', (e) => {
     const user = { name: email.split('@')[0], email: email };
     localStorage.setItem('currentUser', JSON.stringify(user));
     
-    // Redirecting to Generator Page
-    window.location.href = '../generator/index.html';
+    // Redirect to Generator
+    window.location.href = '/generator/index.html';
 });
 
 // Handle Sign Up
@@ -43,6 +43,6 @@ document.getElementById('signupForm').addEventListener('submit', (e) => {
     const user = { name: name, email: email };
     localStorage.setItem('currentUser', JSON.stringify(user));
     
-    // Redirecting to Generator Page
-    window.location.href = '../generator/index.html';
+    // Redirect to Generator
+    window.location.href = '/generator/index.html';
 });
