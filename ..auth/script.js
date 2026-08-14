@@ -29,6 +29,8 @@ document.getElementById('loginForm').addEventListener('submit', (e) => {
 
     const user = { name: email.split('@')[0], email: email };
     localStorage.setItem('currentUser', JSON.stringify(user));
+    
+    // Redirecting to Generator Page
     window.location.href = '../generator/index.html';
 });
 
@@ -40,5 +42,7 @@ document.getElementById('signupForm').addEventListener('submit', (e) => {
 
     const user = { name: name, email: email };
     localStorage.setItem('currentUser', JSON.stringify(user));
+    
+    // Redirecting to Generator Page
     window.location.href = '../generator/index.html';
 });
