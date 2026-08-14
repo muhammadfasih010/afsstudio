@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedTheme = localStorage.getItem("theme") || "dark";
     document.documentElement.setAttribute("data-theme", savedTheme);
 
+    
     if (toggleAppearanceBtn && themeOptionsContainer) {
         toggleAppearanceBtn.addEventListener("click", () => {
             themeOptionsContainer.classList.toggle("hidden-expand");
