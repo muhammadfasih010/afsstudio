@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,17 +13,27 @@
         <header class="top-nav glass-card">
             <div class="brand">
                 <span class="logo-icon">✨</span>
-                <h1>AI Studio Generator</h1>
+                <h1>AI Studio</h1>
             </div>
 
             <div class="nav-actions">
-                <div class="user-profile-badge" style="display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.06); padding: 5px 14px 5px 6px; border-radius: 30px; border: 1px solid var(--border-color);">
-                    <div id="userAvatarLetter" style="width: 28px; height: 28px; background: var(--accent-gradient); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; box-shadow: 0 0 10px var(--accent-glow);">A</div>
-                    <span id="displayProfileName" style="font-size: 13px; font-weight: 700; color: var(--text-primary);">User</span>
+                <!-- Single Profile Dropdown -->
+                <div class="profile-dropdown">
+                    <button id="profileMenuBtn" class="profile-btn">
+                        <div id="userAvatarLetter">A</div>
+                        <span id="displayProfileName">User</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div id="profileDropdownMenu" class="dropdown-menu hidden">
+                        <div class="dropdown-header">
+                            <div id="userAvatarLetterBig">A</div>
+                            <span id="displayProfileNameBig">User</span>
+                        </div>
+                        <a href="#" id="openHistoryBtn">📜 History</a>
+                        <a href="set.html">⚙️ Settings</a>
+                        <a href="auth.html">🚪 Logout</a>
+                    </div>
                 </div>
-
-                <button id="openHistoryBtn" class="btn-secondary">📜 History</button>
-                <a href="set.html" class="btn-secondary">⚙️ Settings</a>
             </div>
         </header>
 
@@ -35,7 +45,7 @@
                     <h2>Prompt Studio</h2>
                     <p>Describe the image you want to generate</p>
                 </div>
-                
+
                 <div class="input-group">
                     <label for="imagePrompt">Enter Prompt</label>
                     <textarea id="imagePrompt" class="form-textarea" placeholder="e.g., A futuristic cyberpunk city in rain, neon lights, highly detailed 8k..." rows="5"></textarea>
@@ -62,7 +72,7 @@
                 </div>
 
                 <div id="imageDisplayArea" class="display-box">
-                    <div id="loader" class="loader hidden"></div> <!-- Loader add kiya -->
+                    <div id="loader" class="loader hidden"></div>
                     <div id="placeholderText" class="placeholder">
                         <span class="placeholder-icon">🖼️</span>
                         <p>No image generated yet. Enter a prompt and click Generate!</p>
@@ -70,9 +80,8 @@
                     <img id="generatedImage" class="result-image hidden" alt="Generated Artwork">
                 </div>
 
-                <!-- Download Action Wrapper -->
                 <div id="imageActions" class="image-actions hidden">
-                    <a id="downloadImageBtn" class="btn-glow btn-full" download="ai-image.png">📥 Download Image</a> <!-- a tag kar diya -->
+                    <a id="downloadImageBtn" class="btn-glow btn-full" download="ai-image.png">📥 Download Image</a>
                 </div>
             </section>
         </main>
@@ -84,7 +93,7 @@
             <div class="modal-header">
                 <div>
                     <h3>📜 History Logs</h3>
-                    <p>Click any prompt to load it and view its generated artwork</p>
+                    <p>Click any prompt to load it</p>
                 </div>
                 <button id="closeHistoryBtn" class="close-btn">✕</button>
             </div>
@@ -97,4 +106,4 @@
 
     <script src="gen.js"></script>
 </body>
-                </html>
+        </html>
