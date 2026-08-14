@@ -30,7 +30,7 @@ document.getElementById('loginForm').addEventListener('submit', (e) => {
     localStorage.setItem('currentUser', JSON.stringify(user));
     
     // Redirect to Generator
-    window.location.href = '/generator/index.html';
+    window.location.href = 'gen.html';
 });
 
 // Handle Sign Up
@@ -43,5 +43,5 @@ document.getElementById('signupForm').addEventListener('submit', (e) => {
     localStorage.setItem('currentUser', JSON.stringify(user));
     
     // Redirect to Generator
-    window.location.href = '/generator/index.html';
+    window.location.href = 'gen.html';
 });
