@@ -1,6 +1,31 @@
         const HF_TOKEN = "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"; 
 const API_URL = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell";
 
+// Load user name from login page
+document.addEventListener('DOMContentLoaded', () => {
+    const savedName = localStorage.getItem('userName') || "Guest";
+    document.getElementById('displayProfileName').innerText = savedName;
+    document.getElementById('displayProfileNameBig').innerText = savedName;
+    document.getElementById('userAvatarLetter').innerText = savedName[0].toUpperCase();
+    document.getElementById('userAvatarLetterBig').innerText = savedName[0].toUpperCase();
+});
+
+// Profile Dropdown Toggle - chota sa arrow click pe khule
+document.getElementById('profileMenuBtn').addEventListener('click', (e) => {
+    // agar seedha set.html jana hai to dropdown hata do
+    // agar dropdown chahiye to neeche wali 2 line on kar do
+    // e.preventDefault();
+    // document.getElementById('profileDropdownMenu').classList.toggle('hidden');
+});
+
+// Bahar click karo to menu band
+window.addEventListener('click', (e) => {
+    if (!document.getElementById('profileMenuBtn').contains(e.target) &&!document.getElementById('profileDropdownMenu').contains(e.target)) {
+        document.getElementById('profileDropdownMenu').classList.add('hidden');
+    }
+});
+
+
 const generateBtn = document.getElementById('generateBtn');
 const promptInput = document.getElementById('imagePrompt');
 const outputImage = document.getElementById('generatedImage');
