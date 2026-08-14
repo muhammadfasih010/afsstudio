@@ -73,3 +73,26 @@ function saveToHistory(prompt) {
 // History Modal ke basic buttons - baad me complete kar lena
 document.getElementById('openHistoryBtn').onclick = () => document.getElementById('historyModal').classList.remove('hidden');
 document.getElementById('closeHistoryBtn').onclick = () => document.getElementById('historyModal').classList.add('hidden');
+// Profile Dropdown Toggle
+const profileMenuBtn = document.getElementById('profileMenuBtn');
+const profileDropdownMenu = document.getElementById('profileDropdownMenu');
+
+profileMenuBtn.addEventListener('click', () => {
+    profileDropdownMenu.classList.toggle('hidden');
+});
+
+// Bahar click karo to menu band ho jaye
+window.addEventListener('click', (e) => {
+    if (!profileMenuBtn.contains(e.target) &&!profileDropdownMenu.contains(e.target)) {
+        profileDropdownMenu.classList.add('hidden');
+    }
+});
+
+// Profile name sync karo dono jagah
+function updateProfileName(name) {
+    document.getElementById('displayProfileName').innerText = name;
+    document.getElementById('displayProfileNameBig').innerText = name;
+    document.getElementById('userAvatarLetter').innerText = name[0].toUpperCase();
+    document.getElementById('userAvatarLetterBig').innerText = name[0].toUpperCase();
+}
+updateProfileName("User"); // yahan localStorage se name le lena
