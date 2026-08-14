@@ -17,7 +17,7 @@
             <div class="nav-actions">
                 <a href="set.html" class="profile-btn">
                     <div id="userAvatarLetter" class="avatar-circle">A</div>
-                    <span id="displayProfileName">Loading...</span>
+                    <span id="displayProfileName">Guest</span>
                 </a>
             </div>
         </header>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="input-group">
                     <label for="imagePrompt">Enter Prompt</label>
-                    <textarea id="imagePrompt" class="form-textarea" placeholder="e.g., A futuristic cyberpunk city in rain, neon lights, highly detailed 8k..." rows="5"></textarea>
+                    <textarea id="imagePrompt" class="form-textarea" placeholder="e.g., A futuristic cyberpunk city in rain, neon lights, highly detailed 8k..." rows="4"></textarea>
                 </div>
                 <div class="input-group">
                     <label for="aspectRatio">Aspect Ratio</label>
@@ -64,19 +64,6 @@
         </main>
     </div>
 
-    <div id="historyModal" class="modal-overlay hidden">
-        <div class="modal-card glass-card">
-            <div class="modal-header">
-                <div><h3>📜 History Logs</h3><p>Click any prompt to load it</p></div>
-                <button id="closeHistoryBtn" class="close-btn">✕</button>
-            </div>
-            <div id="historyListContainer" class="history-list"></div>
-            <div class="modal-footer">
-                <button id="clearHistoryBtn" class="btn-danger">🗑️ Clear History</button>
-            </div>
-        </div>
-    </div>
-
     <script src="gen.js"></script>
 </body>
-                            </html>
+</html>
